@@ -1,0 +1,9 @@
+﻿
+//To add call funciton to Android App on Visual Studio for Mac
+//1. Right click on Android project within the assembly
+//2. Select "Options" from the dropdown menu
+//3. Click on "Android Application" within the Options Menu
+//4. Find the "Required Permissions" section and scroll to find "CallPhone"
+//5. Select the box next to "CallPhone"
+//6. Select "Ok"
+//7. The dialer system in Xamarin.Essentials is not enabled

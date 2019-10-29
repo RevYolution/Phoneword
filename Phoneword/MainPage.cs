@@ -1,5 +1,7 @@
 ﻿using Xamarin.Forms;
 using System;
+using Xamarin.Essentials;
+
 namespace Phoneword
 {
     public class MainPage : ContentPage
@@ -72,7 +74,8 @@ namespace Phoneword
         }
 
         /// <summary>
-        /// 
+        /// When the callButton is clicked this will provide a dialog prompt
+        /// that takes a Title, Message, Accppt/Cancel Buttons. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -84,7 +87,22 @@ namespace Phoneword
                 "Yes",
                 "No"))
             {
-
+                try
+                {
+                    PhoneDialer.Open(translatedNumber);
+                }
+                catch (ArgumentNullException)
+                {
+                    await DisplayAlert("Unable to dial", "Phone number was not valid.", "OK");
+                }
+                catch (FeatureNotSupportedException)
+                {
+                    await DisplayAlert("Unable to dial", "Phone dialing not supported.", "OK");
+                }
+                catch (Exception)
+                {
+                    await DisplayAlert("Unable to dial", "Phone dialing failed.", "OK");
+                }
             }
         }
     }

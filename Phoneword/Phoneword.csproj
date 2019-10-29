@@ -9,4 +9,15 @@
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
     <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Notes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Notes.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Notes.cs">
+      <DependentUpon>Notes.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
